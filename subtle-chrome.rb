@@ -153,9 +153,9 @@ end
 style :title do
   icon        "#757575"
   padding     2, 5, 0, 5
-  #border_bottom "#303030", 2
+  border_bottom "#303030", 2
   #foreground  "#757575"
-  foreground  "#b8b8b8"
+  foreground  "#9898b0"
   background  "#222222"
 end
 
@@ -164,14 +164,15 @@ style :views do
   #foreground  "#757575"
   foreground  "#b8b8b8"
   background  "#222222"
-  icon        "#b8b8b8"
+  icon        "#9898b0"
 
   style :focus do
     padding    2 , 8, 0, 10
-    border_bottom "#F35656", 1
+#   border_bottom "#B35696", 1
+    border_top  "#C34636", 1
     foreground  "#ffffff"
-    background  "#3b3b3b"
-    icon        "#F35656"
+    background  "#373737"
+    icon        "#C34636"
   end
 
   style :urgent do
@@ -182,23 +183,19 @@ style :views do
   end
 end
 
-
-
-
-
 style :clients do
-# active      "#F35656", 2
-  active      "#F36676", 2
+# active      "#C32616", 2
+  active      "#C33636", 3
   inactive    "#222222", 2
-  margin    25  
+  margin    12  
 end
 
 style :sublets do
-  padding     1, 10, 0
-  foreground  "#b8b8b8"
-#  foreground  "#181818"
+  padding     2, 10, 0
+  foreground  "#9898b0"
+# foreground  "#181818"
   background  "#222222"
-  icon        "#F35656"
+  icon        "#C33646"
 end
 
 
@@ -382,8 +379,8 @@ grab "W-3", :ViewSwitch3
 grab "W-4", :ViewSwitch4
 
 # Select next and prev view */
-grab "KP_Add",      :ViewNext
-grab "KP_Subtract", :ViewPrev
+grab "C-A-Right",      	:ViewNext
+grab "C-A-Left",	:ViewPrev
 
 # Move mouse to screen1, screen2, ...
 grab "W-A-1", :ScreenJump1
@@ -395,10 +392,10 @@ grab "W-A-4", :ScreenJump4
 grab "W-C-r", :SubtleReload
 
 # Force restart of subtle
-grab "W-C-S-r", :SubtleRestart
+grab "C-A-S-r", :SubtleRestart
 
 # Quit subtle
-grab "W-C-q", :SubtleQuit
+grab "C-A-S-q", :SubtleQuit
 
 # Move current window
 grab "W-B1", :WindowMove
@@ -425,13 +422,13 @@ grab "W-r", :WindowRaise
 grab "W-l", :WindowLower
 
 # Select next windows
-grab "W-Left",  :WindowLeft
-grab "W-Down",  :WindowDown
-grab "W-Up",    :WindowUp
-grab "W-Right", :WindowRight
+grab "C-A-Left",  :WindowLeft
+grab "C-A-Down",  :WindowDown
+grab "C-A-Up",    :WindowUp
+grab "C-A-Right", :WindowRight
 
 # Kill current window
-grab "W-S-k", :WindowKill
+grab "C-A-S-k", :WindowKill
 
 #audio
 grab "XF86AudioRaiseVolume", "amixer set Master playback 1+"
@@ -455,24 +452,24 @@ grab "XF86AudioStop", "mpc stop"
 #grab "W-KP_3", [ :bottom_right, :bottom_right60, :bottom_right30 ]
 
 # In case no numpad is available e.g. on notebooks
-grab "W-q", [ :top_left,     :top_left60,     :top_left30,     :top_left_60,     :top_left60_60,     :top_left30_60,     :top_left_40,     :top_left60_40,     :top_left30_40     ]
-grab "W-w", [ :top,          :top60,          :top30          ]
-grab "W-e", [ :top_right,     :top_right60,     :top_right30,     :top_right_60,     :top_right60_60,     :top_right30_60,     :top_right_40,     :top_right60_40,     :top_right30_40     ]
-grab "W-a", [ :left,         :left60,         :left30         ]
-grab "W-s", [ :center,       :center60,       :center30       ]
-grab "W-d", [ :right,        :right60,        :right30        ]
+grab "C-A-q", [ :top_left,     :top_left60,     :top_left30,     :top_left_60,     :top_left60_60,     :top_left30_60,     :top_left_40,     :top_left60_40,     :top_left30_40     ]
+grab "C-A-w", [ :top,          :top60,          :top30          ]
+grab "C-A-e", [ :top_right,     :top_right60,     :top_right30,     :top_right_60,     :top_right60_60,     :top_right30_60,     :top_right_40,     :top_right60_40,     :top_right30_40     ]
+grab "C-A-a", [ :left,         :left60,         :left30         ]
+grab "C-A-s", [ :center,       :center60,       :center30       ]
+grab "C-A-d", [ :right,        :right60,        :right30        ]
 #
 # QUERTZ
 #grab "W-y", [ :bottom_left,  :bottom_left60,  :bottom_left30  ]
 #
 # QWERTY
-grab "W-z", [ :bottom_left,  :bottom_left60,  :bottom_left30  ]
+grab "C-A-z", [ :bottom_left,  :bottom_left60,  :bottom_left30  ]
 #
-grab "W-x", [ :bottom,       :bottom60,       :bottom30       ]
-grab "W-c", [ :bottom_right, :bottom_right60, :bottom_right30 ]
+grab "C-A-x", [ :bottom,       :bottom60,       :bottom30       ]
+grab "C-A-c", [ :bottom_right, :bottom_right60, :bottom_right30 ]
 
 # Exec programs
-grab "W-Return", "gnome-terminal"
+grab "C-Return", "gnome-terminal"
 grab "W-S-d", "dmenu_run"
 
 # Run Ruby lambdas
@@ -650,7 +647,7 @@ end
 tag "terms",   "xterm|[u]?rxvt"
 
 tag "browser" do
-  match		"google-chrome-beta|uzbl|opera|firefox|navigator"
+  match		"midori|google-chrome-beta|uzbl|opera|firefox|navigator"
   gravity	:center
   resize	true
   borderless	true
