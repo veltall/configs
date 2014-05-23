@@ -1,45 +1,38 @@
-#
-# imported ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# variable sets
-alias ls='ls --color=auto'
-alias emacs='emacs -nw'
-export PAGER="/usr/bin/most -s"
-
-# prompt settings
-
-#PS1='\n\[\e[0;36m\]\A   \[\e[1;34m\]\u\[\e[0;36m\]@\[\e[1;34m\]\h   \[\e[0;32m\]$PWD\n\[\e[0;38m\]\$ '
-#PS1='\n\u:   $PWD\n➤➤ '
+# ======== color man page
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+#=========
 
 
-## startup scripts
-archey
-feh --bg-scale /home/kafeaulait/totoro2.png
-
-#ls colors
+# ============ private executes
 eval `dircolors ~/.dircolors`
+alias cds="cd ~/.scripts"
+export PATH="$PATH:~/.scripts"
+archey
 
-
-# -------------------------------------------------------------------
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="fino"
-#ZSH_THEME="random"
+ZSH_THEME="random"
 
 # Example aliases
-alias zshconfig="nano ~/.zshrc"
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshreload="source ~/.zshrc"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,23 +71,23 @@ alias zshreload="source ~/.zshrc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm-prompt rbenv)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
-export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='nano'
-# else
 #   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -102,5 +95,3 @@ export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

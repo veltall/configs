@@ -135,7 +135,7 @@ end
 
 style :all do
   #font  "xft:HeldustryFTVBasic Demi:pixelsize=9"
-  font   "xft:Tewi:pixelsize=9"
+  font   "xft:Roboto:pixelsize=10"
 end
 
 style :subtle do
