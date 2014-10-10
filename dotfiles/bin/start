@@ -1,0 +1,45 @@
+#!/bin/sh
+
+WIDTH=150
+HEIGHT=20
+FONT='-*-tamsyn-medium-*-normal-*-11-*-*-*-*-*-*-*'
+
+SEPARATOR_WIDTH=`expr $WIDTH - \( $WIDTH / 100 \) \* 20`
+
+X=0
+Y=0
+
+
+[ -f "$1" ] && MENUFILE="$1" || exit
+
+LINES=`wc -l "$MENUFILE"|sed -e 's/ .*//'`
+[ $LINES -gt 30 ] && LINES=30
+
+execute () {
+        read PROG
+
+        while read LINE; do 
+                LBL=;APP=
+                LBL=$(echo $LINE|sed -e 's/:.*$//' -e 's/^[ \t]*//' -e 's/[ \t]*$//')
+                APP=$(echo $LINE|sed -e 's/^.*://' -e 's/^[ \t]*//' -e 's/[ \t]*$//')
+             
+                if [ x"$APP" = x"exit" ]; then
+                        exit
+                elif [ x"$LBL" = x"$PROG" ]; then
+                       if [ x"$APP" = x"" ]; then
+                          $LBL&
+                       else
+                          $APP&
+                       fi
+                       exit
+                fi
+        done < "$MENUFILE"
+}
+
+
+(
+echo " ^bg(#000000)^fg(#556c85)^i(/home/kafeaulait/.icons/arch_10x10.xbm) Arch"   
+sed -e 's/:.*$//' \
+    -e 's/^.--*/^r('${SEPARATOR_WIDTH}'x1)/' "$MENUFILE" 
+) | \
+dzen2 -l $LINES -w $WIDTH -h $HEIGHT -x $X -y $Y -fn $FONT -bg '#000000' -fg '#bdbdbd' -p -m -sa l -ta l -e 'entertitle=uncollapse,grabkeys;enterslave=grabkeys;leaveslave=collapse,ungrabkeys;button1=menuexec;button2=togglestick;button3=exit:13;button4=scrollup;button5=scrolldown;key_Escape=ungrabkeys,exit'

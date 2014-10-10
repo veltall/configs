@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+# create a fifo to send output
+ff="/tmp/frankenwm.fifo"
+[[ -p $ff ]] || mkfifo -m 600 "$ff"
+
+# Icons
+
+ARCH="$HOME/.icons/xbm2/arch1.xbm"
+PACMAN="$HOME/.icons/dzen2/pacman.xbm"
+NOTE="$HOME/.icons/dzen2/note.xbm"
+
+WEB="$HOME/.icons/xbm2/world.xbm"
+TERM="$HOME/.icons/xbm2/terminal.xbm"
+MAIL="$HOME/.icons/xbm2/mail.xbm"
+MSG="$HOME/.icons/xbm2/messenger1.xbm"
+MOVIE="$HOME/.icons/xbm2/movie.xbm"
+CONF="$HOME/.icons/xbm2/wrench.xbm"
+EDIT="$HOME/.icons/xbm2/binder.xbm"
+WIFI="$HOME/.icons/xbm2/wifi.xbm"
+
+while read -r; do
+    # filter output to only what we want to match and parse
+    [[ $REPLY =~ ^(([[:digit:]]+:)+[[:digit:]]+ ?)+$ ]] && read -ra desktops <<< "$REPLY" || continue
+    for desktop in "${desktops[@]}"; do
+        # set values for
+        # d - the desktop id
+        # w - number of windows in that desktop
+        # m - tiling layout/mode for that desktop
+        # c - whether that desktop is the current (1) or not (0)
+        # u - whether a window in that desktop has an urgent hint set (1) or not (0)
+        IFS=':' read -r d w m c u <<< "$desktop"
+
+        # name each desktop 
+        case $d in
+            0) d=" ^i($ARCH) " s=""   ;;
+#            1) d="^i($WEB)" s=""   ;;
+#            2) d="^i($NOTE)" s=""   ;;
+#            3) d="^i($MOVIE)" s=""   ;;
+#            4) d="^i($TERM)" s=""   ;;
+#            5) d="^i($MSG)" s=""   ;;
+#            6) d="^i($MAIL)" s=""   ;;
+#            7) d="^i($EDIT)" s=""   ;;
+#            8) d="^i($CONF)" s=""   ;;
+#            9) d="^i($WIFI)" s=""   ;;
+#            0) d=" A " s=""   ;;
+            1) d=" r " s=""   ;;
+            2) d=" c " s=""   ;;
+            3) d=" h " s=""   ;;
+            4) d=" l " s=""   ;;
+            5) d=" i " s=""   ;;
+            6) d=" n " s=""   ;;
+            7) d=" u " s=""   ;;
+            8) d=" x " s=""   ;;
+#            9) d="^i($WIFI)" s=""   ;;
+        esac
+
+        # the current desktop color should be #d11783
+        # we will also display the current desktop's tiling layout/mode
+        ((c)) && f="#252e2a" && b="#579880" && case $m in
+            # name each layout/mode with a symbol
+            0) i="  [T]" ;;
+            1) i="  [M]" ;;
+            2) i="  [B]" ;;
+            3) i="  [G]" ;;
+            4) i="  [F]" ;;
+            5) i="  [E]" ;;
+        esac || { b="#0a1112" && f="#499a7e"; }
+	
+        # if the desktop has an urgent hint its color should be #ff0000
+        ((u)) && f="#ff0000"
+
+        # if the desktop has windows print that number next to the desktop name
+        # else just print the desktop name
+        #((w)) && r+="$s ^fg($f)$d $w^fg() " || r+="$s ^fg($f)$d^fg() "
+	r+="$s ^bg($b)^fg($f)$d^bg()^fg() "
+    done
+
+    # read from fifo and output to dzen2
+    printf "%s%s\n" "  $r" && unset r
+done < "$ff" | dzen2 -h 18 -w 1326 -bg "#0a1112" -ta l -e -p -fn "DroidSansMono size=10" -x 20 -y 745 &
+
+# pass output to fifo
+frankenwm > "$ff"

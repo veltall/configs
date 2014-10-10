@@ -1,0 +1,20 @@
+[settings]
+default-encoding=UTF-8
+default-font-family=DejaVu Sans
+monospace-font-family=Inconsolata
+enable-developer-extras=true
+enable-site-specific-quirks=true
+enable-webgl=true
+enable-javascript=true
+default-charset=UTF-8
+last-window-width=1326
+last-window-height=710
+location-entry-search=http://www.google.com/search?q=%s
+toolbar-items=TabNew,Back,NextForward,ReloadStop,BookmarkAdd,Location,Search,Trash,CompactMenu
+homepage=www.google.com
+tabhome=about:search
+download-folder=/home/kafeaulait/Downloads
+toolbar-style=MIDORI_TOOLBAR_SMALL_ICONS
+new-tab-type=MIDORI_NEWTAB_SEARCH
+preferred-encoding=MIDORI_ENCODING_UNICODE
+user-agent=Mozilla/5.0 (X11; Linux) AppleWebKit/538.1 (KHTML, like Gecko) Chrome/18.0.1025.133 Safari/538.1 Midori/0.5

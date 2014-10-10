@@ -1,0 +1,9 @@
+<Applications>
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/apps/urxvt.xbm)^fg() termite
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/apps/thunar.xbm)^fg() thunar
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/apps/google-chrome.xbm)^fg() google-chrome
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/apps/gimp.xbm)^fg() gimp
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/apps/eclipse.xbm)^fg() eclipse
+<System Control>
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/half.xbm)^fg() systemctl reboot
+ ^fg(#bdbdbd)^i(/home/kafeaulait/.icons/empty.xbm)^fg() systemctl poweroff

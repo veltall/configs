@@ -1,0 +1,33 @@
+info_begin
+format: 1
+mpd_version: 0.18.14
+fs_charset: UTF-8
+tag: Artist
+tag: ArtistSort
+tag: Album
+tag: AlbumArtist
+tag: AlbumArtistSort
+tag: Title
+tag: Track
+tag: Name
+tag: Genre
+tag: Date
+tag: Composer
+tag: Performer
+tag: Disc
+tag: MUSICBRAINZ_ARTISTID
+tag: MUSICBRAINZ_ALBUMID
+tag: MUSICBRAINZ_ALBUMARTISTID
+tag: MUSICBRAINZ_TRACKID
+info_end
+song_begin: 01 You're Not Alone (Final Fantas.mp3
+Time: 258
+Artist: Erutan
+AlbumArtist: Erutan
+Title: You're Not Alone (Final Fantasy IX)
+Album: A Bard's Side Quest
+Track: 1/15
+Genre: World
+Disc: 1/1
+mtime: 1411679918
+song_end

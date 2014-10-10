@@ -1,0 +1,7 @@
+[settings]
+columns=3
+rows=3
+
+[Dial 1]
+uri=http://google.com
+title=Google
