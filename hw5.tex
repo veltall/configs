@@ -1,0 +1,33 @@
+> ##Homework #5
+> Vu Dinh
+
+---
+
+###Problem 1. True or False? Justify.
+
+a. If $s_n \rightarrow c$ and $t_n \rightarrow c$ , then $s_n = t_n \quad\forall n \in \mathbb N$. 
+
+**False**. Counterexample:  
+> Consider $(s_n) = \frac{1}{n^2}$ and $(t_n) = \frac{1}{n^2+4}$.
+
+> * $\lim(s_n)=0$ and $\lim(t_n) = 0$, yet
+
+> * For any $n \in \mathbb N$, $s_n \ne t_n$.
+
+------
+b. If $\forall \epsilon > 0, \exists N \in \mathbb N$ such that $n \geq N \text{ implies } s_n < \epsilon \text{, then } s_n \rightarrow 0$.
+
+**False**. The qualification does not require $s_n$ to be a positive sequence, so this statement is trivially true if $s_n$ is eventually negative. If this is, however, a typo, then the statement is correct per the definition of *limit of sequence*.
+
+---
+c. If $s_n \rightarrow s$ and $s_n \rightarrow t$, then $s = t$.
+
+**True**. We proved a theorem in class to justify the uniqueness of limits of sequences.
+
+---
+d. Every convergent sequence is bounded.
+
+**True**, although my justification may be sketchy.
+> Lemma: Every sequence is either **monotonic** or **periodic**.
+> If a sequence is periodic, then there are a finite number of values that the sequence terms can hold, regardless of the value of $n$. This means that the set $S$ that contains all the values of the sequence $s_n$ is finite.
+
