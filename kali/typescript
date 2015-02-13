@@ -1,0 +1,36 @@
+Script started on Thu 12 Feb 2015 04:20:26 PM PST
+[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=ccat shadow  | grep fo  georgia[?1l>
+]2;cat shadow | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} georgi]1;cat[01;31m[Kgeorgia[m[K:$6$eoSO6Q9n$ul9hthKKM2BnAIRfhyQSbYefcj4gABMxWwwIG0hft1AHVnVF93f/1cqi4wb5JP9VXtkqIpuYHZYZD6ixFKdGd/:16479:0:99999:7:::
+[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=ccat password-table.txt[1m [0m[0m [?1l>
+]2;cat password-table.txt]1;catpassword1
+luckystar
+jacktheripper
+ashley25
+netflix-on-crack
+password
+georgianewpassword
+1234
+123456789
+1234321
+correct-horse-battery-staples
+42
+[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=jjoj  ssudo j john sha         s  ccp shaodw   dow crackmet .txt[?1l>
+]2;cp shadow crackme.txt]1;cp[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=jjohn crackme.txt --wordlist=password-table.txt[?1l>
+]2;john crackme.txt --wordlist=password-table.txt]1;johnzsh: command not found: john
+[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=john crackme.txt --wordlist=password-table.txt[46Dsjohn crackme.txt --wordlist=password-table.txt[46Dsujohn crackme.txt --wordlist=password-table.txt[46Ddjohn crackme.txt --wordlist=password-table.txt[46Dojohn crackme.txt --wordlist=password-table.txt[46D john crackme.txt --wordlist=password-table.txt[46D[?1l>
+]2;sudo john crackme.txt --wordlist=password-table.txt]1;john[sudo] password for kafeaulait: 
+Warning: detected hash type "sha512crypt", but the string is also recognized as "crypt"
+Use the "--format=crypt" option to force loading these as that type instead
+Loaded 1 password hash (sha512crypt [64/64])
+georgianewpassword (georgia)
+guesses: 1  time: 0:00:00:00 DONE (Thu Feb 12 16:21:21 2015)  c/s: 42.85  trying: password1 - 42
+Use the "--show" option to display all of the cracked passwords reliably
+[1m[7m%[27m[1m[0m                                                                                                                                                       ]2;kafeaulait@vdinh-1440064: ~]1;~[0m[27m[24m[J[32mkafeaulait@vdinh-1440064: [00m/home/kafeaulait[00m
+[01;33m➜ [00m [K[?1h=
+
+Script done on Thu 12 Feb 2015 04:22:00 PM PST
