@@ -1,0 +1,39 @@
+# nord theme for i3wm by veltall
+
+# i3-status
+color_bad = "#BF616A"
+color_degraded = "#EBCB8B"
+color_good = "#A3BE8C"
+
+# $i3-theme-window
+# nord accents
+set $blue #5E81AC
+set $darkg #2E3440
+set $green #96ba78
+set $lightg #D8DEE9
+set $red #BF616A
+set $white #ECEFF4
+set $yellow #EBCB8B
+
+# $i3-background
+
+
+# <clientclass>		<border> <bg> <text> <indicator>
+client.focused          #88C0D0 $blue $white $red
+client.focused_inactive #E5E9F0 $lightg $white $green
+client.unfocused        #434C5E $darkg $white $lightg
+client.urgent 		#D08770 $yellow $white $red
+
+# $i3-theme-bar
+colors {
+    # <bar>
+    background $darkg
+    separator $lightg
+    statusline $white
+
+    # <workclass>      <border> <bg> <text>
+    focused_workspace 	#88C0D0 $blue $white
+    active_workspace 	#E5E9F0 $darkg $white
+    inactive_workspace	#434C5E $darkg $lightg
+    urgent_workspace 	#D08770 $yellow $white
+}

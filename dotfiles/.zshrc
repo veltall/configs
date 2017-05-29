@@ -1,23 +1,21 @@
-# powerline config
-
-# . /usr/share/zsh/site-contrib/powerline.zsh
-
-# config path = /.local/lib/python3.4/site-packages/powerline
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/home/velt/.oh-my-zsh
+export EDITOR=/usr/bin/vim
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="vu2"
-#ZSH_THEME="agnoster"
-ZSH_THEME="vu3"
-
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="vu"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -54,13 +52,12 @@ ZSH_THEME="vu3"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux catimg dirhistory nyan rvm sudo)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/kafeaulait/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -77,31 +74,24 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/ka
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-
 # Example aliases
-alias zshconfig="nano ~/.zshrc"
-alias ohmyzsh="nano ~/.oh-my-zsh"
-alias ls="ls -A -F --color=always --group-directories-first"
-alias nano="nano -w"
-alias scrot="scrot -cd 5"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR="nano"
+########################################
+# Customs
+########################################
+if [[ $LINES -ge 18 ]]
+then if [[ $COLUMNS -ge 82 ]]
+	then archey3
+	fi
+fi
 
-eval $(dircolors ~/.dircolors)
-
-~/.fehbg
-
-# compton -cCGfF -b -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
-
-compton --config ~/.config/compton.conf -b
-
-#if [[ ! $TERM =~ screen ]]; then
-#    exec tmux
-#fi
+export PATH=$PATH:~/bin
