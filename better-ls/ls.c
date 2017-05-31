@@ -1,3 +1,7 @@
+/* this is a stupid comment */
+
+
+
 /* `dir', `vdir' and `ls' directory listing programs for GNU.
    Copyright (C) 85, 88, 90, 91, 1995-2009 Free Software Foundation, Inc.
 
