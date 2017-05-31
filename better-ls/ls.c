@@ -35,7 +35,6 @@
    Flaherty <dennisf@denix.elk.miles.com> based on original patches by
    Greg Lee <lee@uhunix.uhcc.hawaii.edu>.  */
 
-#include <config.h>
 #include <sys/types.h>
 
 #ifdef HAVE_CAP
@@ -57,6 +56,8 @@
 # include <sys/ptem.h>
 #endif
 
+#include <config.h>
+#include <selinux/selinux.h>
 #include <stdio.h>
 #include <assert.h>
 #include <setjmp.h>
@@ -64,8 +65,9 @@
 #include <pwd.h>
 #include <getopt.h>
 #include <signal.h>
-#include <selinux/selinux.h>
 #include <wchar.h>
+
+#include "system.h"
 
 #if HAVE_LANGINFO_CODESET
 # include <langinfo.h>
@@ -85,7 +87,6 @@
 # define SA_RESTART 0
 #endif
 
-#include "system.h"
 #include <fnmatch.h>
 
 #include "acl.h"
@@ -4185,8 +4186,6 @@ print_color_indicator (const struct fileinfo *f, bool symlink_target)
 
   /* Check the file's suffix only if still classified as C_FILE.  */
   ext = NULL;
-  if (type == C_FILE)
-    {
       /* Test if NAME has a recognized suffix.  */
 
       len = strlen (name);
@@ -4198,7 +4197,6 @@ print_color_indicator (const struct fileinfo *f, bool symlink_target)
                           ext->ext.len) == 0)
             break;
         }
-    }
 
   {
     const struct bin_str *const s
@@ -4250,6 +4248,9 @@ length_of_file_name_and_frills (const struct fileinfo *f)
 
   if (print_scontext)
     len += 1 + (format == with_commas ? strlen (f->scontext) : scontext_width);
+
+  if (print_with_color)
+	len += 2;
 
   quote_name (NULL, f->name, filename_quoting_options, &name_width);
   len += name_width;
